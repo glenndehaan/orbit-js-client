@@ -1,5 +1,7 @@
 # Orbit JS Client
 
+The orbit telemetry client for JavaScript
+
 [![npm](https://img.shields.io/npm/v/orbit-js-client.svg)](https://www.npmjs.com/package/orbit-js-client) ![node](https://img.shields.io/node/v/orbit-js-client.svg)
 
 ## Setup

@@ -1,7 +1,7 @@
 {
   "name": "orbit-js-client",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "The orbit telemetry client for JavaScript",
   "main": "./src/index.js",
   "scripts": {
     "start": "nodemon --watch src --exec 'npm run lint && node ./debug/server.js'",
