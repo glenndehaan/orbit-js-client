@@ -1,7 +1,7 @@
 /**
  * Vendor imports
  */
-const orbit = require('../src/orbit-client')({
+const orbit = require('../src')({
     server: 'https://orbit.example.com',
     token: '8ad78eb4-0d19-44c6-9823-9550ab4c0afb',
     project: 'orbit-test-project',
