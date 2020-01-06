@@ -54,8 +54,10 @@ const runner = (server, token, project, env) => {
             pid: process.pid,
             uptime: process.uptime()
         },
+        id: `${project}_${env}_${os.hostname()}_js`,
         project,
         env,
+        client: 'js',
         updated: new Date().getTime()
     };
 
