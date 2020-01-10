@@ -22,7 +22,7 @@ const orbit = require('orbit-js-client')({
 That's it the Orbit client will now connect to the Orbit Server and send over the required data
 
 ## Stop
-To stop Orbit from sending data us the function provided in the return value from the Orbit client:
+To stop Orbit from sending data use the function provided in the return value from the Orbit client:
 ```
 const orbit = require('orbit-js-client')({
     server: 'https://orbit.example.com',

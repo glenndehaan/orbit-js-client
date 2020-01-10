@@ -2,13 +2,13 @@
  * Vendor imports
  */
 const orbit = require('../src')({
-    server: 'https://orbit.example.com',
-    token: '8ad78eb4-0d19-44c6-9823-9550ab4c0afb',
-    project: 'orbit-test-project',
+    server: 'http://127.0.0.1:3000',
+    token: '8e5807fd-410a-4b11-ad27-50c8c0e7d64d',
+    project: 'orbit-debug-project',
     env: 'dev'
 });
 const http = require('http');
-const port = 3000;
+const port = 3001;
 
 const server = http.createServer((request, response) => {
     console.log(request.url);

@@ -19,13 +19,11 @@ let failed = false;
  * @param project
  * @param env
  */
-const runner = (server, token, project, env) => {
+const runner = async (server, token, project, env) => {
     /**
-     * Check if Orbit failed
+     * Get public data
      */
-    if (failed) {
-        return;
-    }
+    const publicData = await getPublicData();
 
     /**
      * Build the telemetry data object
@@ -54,6 +52,10 @@ const runner = (server, token, project, env) => {
             pid: process.pid,
             uptime: process.uptime()
         },
+        public: {
+            ip: publicData.ip,
+            country_code: publicData.country_code
+        },
         id: `${project}_${env}_${os.hostname()}_js`,
         project,
         env,
@@ -69,8 +71,34 @@ const runner = (server, token, project, env) => {
             'bearer': token
         }
     }).catch(() => {
-        console.log('[Orbit] Failed. Dropping this only once.');
+        if (!failed) {
+            console.log('[Orbit] Failed. Dropping this only once.');
+        }
         failed = true;
+    });
+};
+
+/**
+ * Gets the public server data
+ *
+ * @return {Promise<unknown>}
+ */
+const getPublicData = () => {
+    return new Promise((resolve) => {
+        fetch(`http://ifconfig.io/all.json`, {
+            method: 'get',
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(res => res.json()).then((data) => {
+            resolve(data);
+        }).catch((e) => {
+            console.log('e', e);
+            resolve({
+                ip: "",
+                country_code: ""
+            })
+        });
     });
 };
 
