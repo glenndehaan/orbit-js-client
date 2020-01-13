@@ -2,7 +2,7 @@
  * Vendor imports
  */
 const orbit = require('../src')({
-    server: 'http://127.0.0.1:3000',
+    server: 'http://127.0.0.1:43001',
     token: '8e5807fd-410a-4b11-ad27-50c8c0e7d64d',
     project: 'orbit-debug-project',
     env: 'dev'
